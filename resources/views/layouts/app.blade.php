@@ -13,8 +13,16 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <script>
+            window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token()
+        ]) !!};
+        </script>
+
+
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" id="app">
         <div class="bg-gray-900">
             @include('layouts.navigation')
 

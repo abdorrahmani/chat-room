@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/chat' , [ChatsController::class , 'index'])
+Route::get('/chats' , [ChatsController::class , 'index'])
     ->middleware('auth')->name('chat');
 
 Route::get('messages',[ChatsController::class,'fetch']);
