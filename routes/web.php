@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Chat\ChatsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/chat' , ['App\Http\Controllers\Chat\ChatsController' , 'index'])
+Route::get('/chat' , [ChatsController::class , 'index'])
     ->middleware('auth')->name('chat');
+
+Route::get('messages',[ChatsController::class,'fetch']);
+
 require __DIR__.'/auth.php';
 
